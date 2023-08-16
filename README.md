@@ -1,6 +1,6 @@
 # Income-Expense-Tracker-App 
 
-Income-Expense-Tracker project has been made with Express.js and MySQL database. This Web-application contains features like:
+Income-Expense-Tracker project has been made with Node.js, Express.js and MongoDb Atlas database. This Web-application contains features like:
 
 
 
@@ -32,10 +32,10 @@ Income-Expense-Tracker project has been made with Express.js and MySQL database.
 
 
 ```bash
-  $ git clone https://github.com/kaayush163/Income-Expense-Tracker-App.git
+  $ git clone https://github.com/kaayush163/MongoDB-IncomeExpense-Tracker-WebAPP.git
 ```
 ```bash
-  $ cd Income-Expense-Tracker-App
+  $ cd MongoDB-IncomeExpense-Tracker-WebAPP
 ```
 ```bash
   $ npm i
