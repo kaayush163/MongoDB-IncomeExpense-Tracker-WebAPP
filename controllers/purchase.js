@@ -4,8 +4,6 @@ const Order = require('../models/order');
 const User = require('../models/signup')
 const mongoose = require('mongoose');
 
-
-
 exports.purchasepremium = async(req,res) => {
     try{
         var rzp = new Razorpay({
