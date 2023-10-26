@@ -1,6 +1,5 @@
 ////doing with sendinblue brevo
 const uuid = require('uuid');
-// const sgMail = require('@sendgrid/mail');
 const bcrypt = require('bcrypt');
 const Sib = require('sib-api-v3-sdk');
 const mongoose = require('mongoose');
