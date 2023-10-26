@@ -21,7 +21,6 @@ const downloadexpense = async(req,res) => {
       const expenses = await UserServices.getExpenses(req,res)
       
        const userId = req.user.id;
-       console.log('expenses>>>>>>>>>>>>',expenses)
        console.log('expenses of user>>>>>',expenses[0].dataValues);
        
        
