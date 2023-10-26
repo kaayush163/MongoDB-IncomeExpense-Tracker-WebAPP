@@ -1,10 +1,10 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors');   
 const dotenv = require('dotenv');
 const helmet = require('helmet');   /// Helmet is a nodejs package that helps protect your server from some well-known web vulnerabilities by setting HTTP response headers appropriately
-const morgan = require('morgan');
+const morgan = require('morgan');  
 const fs = require('fs');
 const mongoose = require('mongoose')
 dotenv.config();
@@ -39,7 +39,7 @@ app.use(morgan('combined',{stream:accessLogStream}));   ///used for logging requ
 
 mongoose.connect(process.env.MONGODB_ATLAS_URL)
     .then((result) => {
-        // console.log('Connected to atlas!',result)
+        console.log('Connected to atlas!',result)
         app.listen(3000)
     })
     .catch(err => console.log(err))
