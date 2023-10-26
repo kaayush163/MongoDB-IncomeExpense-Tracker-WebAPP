@@ -6,7 +6,7 @@ exports.getUserLeaderboard = async(req,res) => {
         const leaderboardofusers = await User.find()
         .sort({totalBalance: 'desc'})
 
-        console.log('leaderbard details>>>>',leaderboardofusers);
+        // console.log('leaderbard details>>>>',leaderboardofusers);
         res.status(200).json(leaderboardofusers);
 }
 catch(err){
