@@ -8,8 +8,8 @@ router.get('/get-expense', userauthentication.authenticate ,expenseController.ge
 
 router.post('/add-expense', userauthentication.authenticate, expenseController.postExpense);
 
-router.delete('/delete-expense/:expenseId', userauthentication.authenticate, expenseController.deleteExpense);
+router.delete('/delete-expense/:id', userauthentication.authenticate, expenseController.deleteExpense);
 
-router.put('/edit-expense/:expenseId',userauthentication.authenticate, expenseController.editExpense);
+router.put('/edit-expense/:id',userauthentication.authenticate, expenseController.editExpense);
 
 module.exports = router;
