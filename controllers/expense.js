@@ -162,7 +162,7 @@ exports.postExpense = async (req, res, next) => {
 exports.deleteExpense = async (req, res, next) => {
   
   try {
-    const expenseId = req.params.expenseId;              
+    const expenseId = req.params.id;              
     console.log('expenseid>>>>',expenseId);
     const expenseField = await Expense.findById(expenseId);   
     console.log('expensefirled>>>>',expenseField.amount);
@@ -204,7 +204,7 @@ exports.deleteExpense = async (req, res, next) => {
 exports.editExpense = async (req, res, next) => {
   
   try {
-    const expenseId = req.params.expenseId;    
+    const expenseId = req.params.id;    
     console.log('expenseid>>>>',expenseId);
     const expenseField = await Expense.findById(expenseId);
     console.log('expensefirled>>>>',expenseField.amount);
