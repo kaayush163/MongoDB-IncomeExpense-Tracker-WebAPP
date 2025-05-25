@@ -42,7 +42,7 @@ async function addTransaction(e){           //////first on submit it comes here
            };
 
            console.log(ID);
-            if(ID){  //ye jo Id pass ho rha hai ye edit wale par hoga firse submit krna hai to id same lekar from crud wale se
+            if(ID){  //this id is passing is for Edit purpose and then will submit
                 console.log(ID);
                 // let res =  await axios.put(url+'/'+ID,transaction)
                 try{
@@ -113,7 +113,7 @@ function getter() {   ////when click on get button which finction onclick alread
 
 async function getExpense(page){
 
-        document.getElementById("list").innerHTML = "";  /////if go to next page we have to empty the list so that we can fill baad wale expence income jo bache hai
+        document.getElementById("list").innerHTML = "";  /////if go to next page we have to empty the list so that we can fill later expenses in the list otherwise append on the previous ones
         const COUNT = localStorage.getItem("count");
         const database = await axios.get(`${url}/get-expense?page=${page}&count=${COUNT}`, { headers : {"Authorization": token}})
         .then(response => {
