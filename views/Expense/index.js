@@ -312,8 +312,8 @@ function download(){
     });
 }
 
-//Update Values  for changing income and expense number on submitting the form this is the beauty of JAVASCRIPT
-async function updateValues(){ //mann ke chalo hamare pass 4 arrays hai means 4 transaction har value ko fetch out krna hai
+//Update Values  for changing income and expense number on submitting the form
+async function updateValues(){ //LEts say we have four arrays means 4 transaction to every value we have to fetch out
     // const token = localStorage.getItem('token');
     let res = await axios.get(`${url4}/get-update-totalbalance`, { headers: {'Authorization': token}});
     console.log(res.data.all[0].email);
