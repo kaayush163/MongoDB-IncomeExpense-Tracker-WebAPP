@@ -33,34 +33,39 @@ const forgotpassword = async (req, res) => {
       const apiKey = client.authentications["api-key"]; //apiKey is object from client we got
       apiKey.apiKey = process.env.SIB_API_KEY;
 
+      console.log("API Key loaded:", process.env.SIB_API_KEY ? "Yes" : "No");
       const tranEmailApi = new Sib.TransactionalEmailsApi();
       const sender = {
-        email: process.env.SIB_EMAIL, //of Sender
+        name: "App support",
+        email: "kaayush163@gmail.com", //of Sender
       };
 
+      // sending the reset link to the various users who forgotten their password this shou;d be array of objects //contain multiple users
       const receivers = [
-        // sending the reset link to the various users who forgotten their password this shou;d be array of objects //contain multiple users
         {
           email: email,
         },
       ];
+
+      ///transEmail is an asynchrounous task so do it by thencatch or async await
+      //   textContent: `I will help you to become {{params}}`, //can pass html content also here
+      //   params: {
+      //     role: "Full Stack",
+      //   },
+      //   htmlContent: `<a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>`,
       tranEmailApi
         .sendTransacEmail({
-          ///transEmail is an asynchrounous task so do it by thencatch or async await
           sender,
           to: receivers,
           subject: "Sending with sendinblue",
-          textContent: `I will help you to become {{params}}`, //you can pass html content also here
-          params: {
-            role: "Full Stack",
-          },
-          htmlContent: `<a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>`, /////html content overide text content whatever you written in text only html will seen in emil
+          textContent: `Click the link to reset your password.`,
         })
         .then((response) => {
           console.log("response", response);
           //return res.status(response).json({message: 'Link to reset password sent to your mail ', sucess: true})
         })
         .catch((error) => {
+          console.log(error);
           throw new Error(error);
         });
     } else {

@@ -55,18 +55,6 @@ Income-Expense-Tracker project has been made with Node.js, Express.js and MongoD
 | :--------------------------------------------------: | :--------------------------------------------------: |
 | <img src="screenshots/Screenshot5.png" height="225"> | <img src="screenshots/Screenshot6.png" height="225"> |
 
-|                  Payment Successful                  |                 MyBookings Dashboard                 |
+|                  Payment Successful                  |           Premium User 3 features provided           |
 | :--------------------------------------------------: | :--------------------------------------------------: |
 | <img src="screenshots/Screenshot7.png" height="225"> | <img src="screenshots/Screenshot8.png" height="225"> |
-
-|                 Stripe Payment Page                  |                      Paid Status                      |
-| :--------------------------------------------------: | :---------------------------------------------------: |
-| <img src="screenshots/Screenshot9.png" height="225"> | <img src="screenshots/Screenshot10.png" height="225"> |
-
-|               Booking Confirmation Mail               |                 HotelOwner Dashboard                  |
-| :---------------------------------------------------: | :---------------------------------------------------: |
-| <img src="screenshots/Screenshot11.png" height="225"> | <img src="screenshots/Screenshot12.png" height="225"> |
-
-|           Add Rooms facility by Hotel Owner           |        List of Rooms Monitored by Hotel Owner         |
-| :---------------------------------------------------: | :---------------------------------------------------: |
-| <img src="screenshots/Screenshot13.png" height="225"> | <img src="screenshots/Screenshot14.png" height="225"> |
