@@ -15,10 +15,6 @@ const forgotpassword = async (req, res) => {
       console.log("id of user>>>>", user);
       const id = uuid.v4();
       console.log("id>>>>>", id);
-      // user.createForgotpassword({ id , active: true })  ///// createForgotpassword is a sequelize method function
-      //     .catch(err => {
-      //         throw new Error(err)  //createForgetPassword is a method of sequelize not for mongoose
-      //     })
 
       await Forgotpassword.create({
         uuid: id,
@@ -29,8 +25,8 @@ const forgotpassword = async (req, res) => {
           throw new Error(err);
         });
 
-      const client = Sib.ApiClient.instance; /// we take instance from Sib apiclient
-      const apiKey = client.authentications["api-key"]; //apiKey is object from client we got
+      const client = Sib.ApiClient.instance; 
+      const apiKey = client.authentications["api-key"]; 
       apiKey.apiKey = process.env.SIB_API_KEY;
 
       console.log("API Key loaded:", process.env.SIB_API_KEY ? "Yes" : "No");
@@ -40,19 +36,13 @@ const forgotpassword = async (req, res) => {
         email: "kaayush163@gmail.com", //of Sender
       };
 
-      // sending the reset link to the various users who forgotten their password this shou;d be array of objects //contain multiple users
       const receivers = [
         {
           email: email,
         },
       ];
 
-      ///transEmail is an asynchrounous task so do it by thencatch or async await
-      //   textContent: `I will help you to become {{params}}`, //can pass html content also here
-      //   params: {
-      //     role: "Full Stack",
-      //   },
-      //   htmlContent: `<a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>`,
+      
       tranEmailApi
         .sendTransacEmail({
           sender,
@@ -62,7 +52,7 @@ const forgotpassword = async (req, res) => {
         })
         .then((response) => {
           console.log("response", response);
-          //return res.status(response).json({message: 'Link to reset password sent to your mail ', sucess: true})
+          
         })
         .catch((error) => {
           console.log(error);
@@ -82,7 +72,7 @@ const resetpassword = async (req, res) => {
     const id = req.params.id;
     const forgotpasswordrequest = await Forgotpassword.find({ uuid: id });
     if (forgotpasswordrequest) {
-      // forgotpasswordrequest.update({ active: false});
+      
       res.status(200).send(`<html>
                                     <script>
                                         function formsubmitted(e){
