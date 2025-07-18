@@ -1,5 +1,5 @@
 
-const AWS = require('aws-sdk');     ///aws software development kit more like axios mode
+const AWS = require('aws-sdk');
 const linkmodel  = require('../models/downloadurlsModel');
 const mongoose = require('mongoose');
 
@@ -15,18 +15,16 @@ exports.uploadToS3 = (data,filename) => {
     
     })   
  
-  
+     ///now upload to get xml url
      var params = {
        Bucket: BUCKET_NAME,
-       ///now we are gonna upload to get xml url
        Key: filename,   
        Body: data,
-       ACL:'public-read'        //to read xml file publicalaly accessible
+       ACL:'public-read'        //to read xml file publically accessible
      }
-   // })
      
     return new Promise((resolve,reject) => {
-     s3bucket.upload(params, (err,s3response) => {    ///// It's an asynchronous task
+     s3bucket.upload(params, (err,s3response) => {
        if(err){
          console.log('Something went wrong', err)
          reject(err);
@@ -44,7 +42,6 @@ exports.urlExport = async function(url, userid){
 
   try{
   //  await linkmodel.create({
-
   //      userId : userid,
   //      url : url
   // })
@@ -54,8 +51,6 @@ exports.urlExport = async function(url, userid){
   })
   await links.save()
   console.log("Db Updation done")
-//    console.log("Db Updation done")
-  
   } catch(e){
    console.log(e)
    console.log("url exp")
@@ -70,7 +65,6 @@ exports.urlsFetch = async function(userid){
       // const list = await linkmodel.findAll({
       //     where : { userId : userid}
       // })
-      // console.log("Db fetch done")
       // return list;
 
       console.log(userid)
