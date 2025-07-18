@@ -1,8 +1,5 @@
-const getExpenses = (req,where) => {   ///getexpesne is a arrow function and request is an object
-    /// return me all the user related expense
-
+const getExpenses = (req,where) => {
     return req.user.getExpenses(where);
-
 }
 
 
