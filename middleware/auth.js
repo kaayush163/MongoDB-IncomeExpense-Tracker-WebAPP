@@ -1,4 +1,3 @@
-// require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const User = require('../models/signup');
 
@@ -8,20 +7,15 @@ const authenticate = (req, res, next) => {
         let token = req.header('Authorization') ; 
         //token = token.split(" ")[1];
 
-        //console.log(token);
-        let user = jwt.verify(token,process.env.TOKEN_SECRET); //in verify we have to decrypt userid with help of secret key THIS IS DECRYPTION
-        console.log('userId>>>>>',user.userId);      
+        let user = jwt.verify(token,process.env.TOKEN_SECRET); //THIS IS DECRYPTION using token secret key   
 
-        User.findById(user.userId).then((user) => {  // in mongodb findByPk is not used (its used in sql) we use findOne of findByid for mongodb user we get the user object from findbypk for a particular user using decrypt token verify
-            //console.log(user);
+        User.findById(user.userId).then((user) => {
             req.user = user; 
-            //console.log(req.user);
             next(); 
         })
     } 
     catch (err) 
     {
-        //console.log(err);
         return res.status(401).json({ error:"problem in auth.js", success: false });
     }
 };
