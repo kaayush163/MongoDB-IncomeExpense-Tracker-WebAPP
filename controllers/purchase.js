@@ -13,7 +13,7 @@ exports.purchasepremium = async(req,res) => {
         const amount = 2500;
 
         rzp.orders.create({amount, currency:"INR"},(err, order) => {    
-            console.log('orderid>>>>>',order.id);
+            console.log('orderid>>>>>',order.id);  //// For Debugging purpose
             if(err) {
                 throw new Error(JSON.stringify(err));
             }
@@ -46,7 +46,7 @@ exports.updateTransaction = async (req,res) => {
 
         const order=await Order.find({orderid: order_id})   
         
-        console.log('update transaction on order deatil',order);
+        console.log('update transaction on order deatil',order);  //// For Debugging purpose
 
         
         
